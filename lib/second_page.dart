@@ -11,7 +11,6 @@ class secnd extends StatelessWidget {
     final list = prov.myList;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.cyan,
           title: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Text(
@@ -28,14 +27,24 @@ class secnd extends StatelessWidget {
             itemCount: list.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text(
-                  "${list[index]}",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 19,
-                      fontWeight: FontWeight.bold),
-                ),
-              );
+                  title: Text(
+                    "${list[index]}",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 19,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  trailing: IconButton(
+                      onPressed: () {
+                        prov.favour(list[index]);
+                      },
+                      icon: (prov.icn(list[index]))
+                          ? Icon(
+                              Icons.favorite,
+                              size: 25,
+                              color: Colors.red,
+                            )
+                          : Icon(Icons.favorite_border, size: 25)));
             }));
   }
 }

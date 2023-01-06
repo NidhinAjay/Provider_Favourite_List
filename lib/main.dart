@@ -7,6 +7,7 @@ void main() {
   runApp(ChangeNotifierProvider(
     create: ((context) => MyProvider()),
     child: MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.lightGreen),
       home: const English(),
       debugShowCheckedModeBanner: false,
     ),
@@ -35,7 +36,6 @@ class English extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyan,
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Text(
